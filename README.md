@@ -1,4 +1,4 @@
-# user table
+# users table
 
 |Column|Type|Options|
 |---|---|---|
@@ -11,7 +11,7 @@ has_many: groups, :through => : groups_id
 has_many: users
 
 
-## group table
+## groups table
 
 |Column|Type|Options|
 |---|---|---|
@@ -33,7 +33,7 @@ belongs_to: user
 belongs_to: group
 
 
-#### message table
+#### messages table
 
 |Column|Type|Options|
 |---|---|---|
