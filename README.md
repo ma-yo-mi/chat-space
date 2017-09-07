@@ -1,45 +1,45 @@
 # users table
 
-|Column|Type|Options|
-|---|---|---|
-|user_id|integer|foreign_key: true|
-|user_name|integer|null :false|
+|Column|Type|Options|Index|
+|---|---|---|---|
+|name|integer|null :false|unique: true|
 |e-mail|text|null :false|
 
 has_many: messages
-has_many: groups, :through => : groups_id
-has_many: users
+has_many: group_members
+has_many: groups, through: groups
+
 
 
 ## groups table
 
-|Column|Type|Options|
-|---|---|---|
-|group_id|integer|foreign_key: true|
-|group_name|integer|null :false|
+|Column|Type|Options|Index|
+|---|---|---|---|
+|name|integer|null :false|unique: true|
 
-has_many: users, :through => :users_id
-has_many: groups, :through => : groups_id
+has_many: messages
+has_many: users, through: :group_members
+has_many: group_members
 
 
-### group table (relative)
+### group_members table
 
-|Column|Type|Options|
-|---|---|---|
-|user_id|integer|
-|group_id|integer|
+|Column|Type|Options|Index|
+|---|---|---|---|
+|user_id|integer|null :false, foreign_key: true|unique: true|
+|group_id|integer|null :false, foreign_key: true|unique: true|
 
 belongs_to: user
 belongs_to: group
 
 
+
 #### messages table
 
-|Column|Type|Options|
-|---|---|---|
+|Column|Type|Options|Index|
+|---|---|---|---|
 |body|text|
 |image|string|
-|created_date|timestamp|
 
 belongs_to: user
 belongs_to: group
