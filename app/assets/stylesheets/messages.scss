@@ -6,7 +6,7 @@
             box-sizing: border-box;
 }
 .notification {
-  width: calc(100vw + 300px );
+  width: 100vw;
   background-color: var(--blue);
   box-sizing: border-box;
   p {
@@ -63,11 +63,13 @@
       .chat-side__groups-name {
         p {
           font-size: 15px;
+          padding: 20px 0 5px 0;
         }
       }
       .chat-side__groups-message {
         p {
           font-size: 11px;
+          padding: 0 0 40px 0;
         }
       }
     }
