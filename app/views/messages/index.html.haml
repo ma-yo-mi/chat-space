@@ -1,0 +1,77 @@
+.notification
+  %p チャットグループが作成されました。
+
+.chat-side
+  .chat-side__user
+    .chat-side__user--name
+      %p NAME
+    .chat-side__user--btn1
+      %i.fa.fa-cog
+    .chat-side__user--btn2
+      %i.fa.fa-pencil-square-o
+
+  .chat-side__groups
+    .chat-side__groups-list
+      .chat-side__groups-name
+        %p group1
+      .chat-side__groups-message
+        %p message1
+      .chat-side__groups-name
+        %p group2
+      .chat-side__groups-message
+        %p message2
+
+
+.main-site
+  .main-site__header
+    .main-site__header--info
+      .group SAMPLE group
+      %p members:ccc,sss,zzz
+    .main-site__header--btn
+      %a{ href: '', id: 'edit' }<edit
+  .main-site__body
+    .main-site__body--messages
+      %ul
+      %li.message
+        %p.message__name<
+          sample NAME
+          %span<
+            2017/09/11 00:00:00
+        %p.message__text<
+          test test test test
+      %li.message.my-message
+        %p.message__name<
+          sample NAME2
+          %span<
+            2017/09/11 00:00:00
+        %p.message__text<
+          test test test test 2
+      %li.message
+        %p.message__name<
+          sample 名前
+          %span<
+            2017/09/11 00:00:00
+        %p.message__text<
+          テストテストテストテストテスト
+
+  .bottoms
+    %form
+      %input.textarea{:name => "body", :placeholder => "type a message", :type => "text"}/
+      %input.submit{:type => "submit", :value => "Send"}/
+
+
+
+
+    -#.chat-side__user--btn2
+      -#= link_to edit_user_registration_path do
+      -#%i.fa.fa-cog
+      -#      =text_field :text, placeholder: "Type here"
+  -#.main-site__message
+    -#%span.form
+    -#%input.text{type: :text, placeholder: "type a message"}
+    -#.main-site__message--picbtn
+    -#%i.fa.fa-file-image-o{"aria-hidden" => "true"}
+    -#%input.{ href: '', id: 'sent' }<Send
+
+'
+

@@ -1,10 +1,166 @@
-<<<<<<< Updated upstream
-=======
-@import "variable"
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.notification {
+  width: 100vw;
+  background-color: var(--blue);
+  box-sizing: border-box;
+  p {
+    color: var(--white);
+    text-align: center;
+  }
+}
+
+.chat-side {
+  height: 100vh;
+  width: 300px;
+  float: left;
+
+  .chat-side__user {
+      height: 120px;
+      background-color: #253141;
+    .chat-side__user--name {
+      color: #FFFFFF;
+      display: flex;
+      padding: 45px 0 0 20px;
+      float: left;
+      p {
+        font-size: 16px;
+        font-weight: bold;
+        color: #FFFFFF;
+      }
+    }
+
+    .chat-side__user--btn1, .chat-side__user--btn2 {
+      height: 50px;
+      width: 50px;
+      float: right;
+      color: #FFFFFF;
+      line-height: 120px;
+      .fa {
+        display: inline-block;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+      }
+    }
+  }
+
+  .chat-side__groups {
+      height: calc(100vh - 120px);
+      background-color: #2f3e51;
+    .chat-side__groups-list {
+      color: var(--white);
+      display: block;
+      box-sizing: border-box;
+      padding: 0 20px;
+      clear: both;
+      .chat-side__groups-name {
+        p {
+          font-size: 15px;
+          padding: 20px 0 5px 0;
+        }
+      }
+      .chat-side__groups-message {
+        p {
+          font-size: 11px;
+          padding: 0 0 40px 0;
+        }
+      }
+    }
+  }
+}
+
+
+.main-site {
+  height: 100vh;
+  width: calc(100vw - 300px);
+  float: right;
+}
+  .main-site__header {
+    height: 120px;
+  }
+
+    .main-site__header--info {
+      font-size: 20px;
+      color: #333333;
+      margin: 46px 0 0 40px;
+      float: left;
+      p {
+        font-size: 12px;
+        color: #999999;
+        padding: 10px 0;
+      }
+    }
+    .main-site__header--btn {
+      height: 50px;
+      width: 100px;
+      border: 1px solid var(--blue);
+      box-sizing: border-box;
+      padding: 8px 20px;
+      color: #38AEF0;
+      margin: 35px 20px;
+      float: right;
+      text-align: center;
+      a {
+      font-size: 20px;
+      text-decoration: none;
+      }
+    }
+  .main-site__body {
+    height: calc(100vh - 120px - 90px);
+    clear:both;
+    list-style: none;
+    border-top: 2px solid #eeeeee;
+    font-size: 15px;
+
+
+    p.message__name {
+      margin: 46px 0 10px 40px;
+    }
+    p.message__text {
+      margin: 10px 0 0 40px;
+    }
+    span {
+      margin: 0 0 0 10px;
+      color: #999999;
+      font-size: 11px;
+    }
+  }
+
+
+  .main-site .bottoms {
+    background-color: #DCDCDC ;
+    height: 90px;
+    padding: 20px 40px;
+    .textarea {
+      width: calc(100% - 120px);
+      height: 50px;
+      padding: 0 20px;
+      border: none;
+    }
+    .submit {
+      background-color: var(--blue);
+      color: #FFFFFF ;
+      height: 50px;
+      padding: 0 20px;
+      border-style: none;
+      font-size: 20px;
+      margin-left: 15px;
+    }
+  }
+
+  input::-webkit-input-placeholder {
+   font-size: 16px;
+  }
+  input:-moz-placeholder {
+   font-size: 16px;
+  }
 
 
 
->>>>>>> Stashed changes
-// Place all the styles related to the messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
