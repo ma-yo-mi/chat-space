@@ -10,6 +10,9 @@ before_action :move_to_index, except: :index
   def create
   end
 
+  def edit
+  end
+
   def destroy
   end
 
