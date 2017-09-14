@@ -18,14 +18,6 @@ before_action :move_to_index, except: :index
   end
   end
 
-  def show
-  end
-
-  def edit
-  end
-
-  def destroy
-  end
 
 
 private

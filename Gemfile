@@ -19,12 +19,12 @@ gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'pry-rails'
 gem 'devise'
-
+gem 'html2haml'
+gem 'erb2haml'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'html2haml'
-  gem 'erb2haml'
+
 end
 
 group :development do
