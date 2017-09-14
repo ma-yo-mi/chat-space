@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to_groups_path
+      redirect_to_group_path
       else
         render action: :new
 
