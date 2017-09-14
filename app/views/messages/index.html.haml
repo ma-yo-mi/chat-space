@@ -1,5 +1,8 @@
-.notification
-  %p チャットグループが作成されました。
+/ .notification
+/   - if flash.any?
+/     .flash-message
+/       %p.flash-message__notice= notice
+/       %p.flash-message__alert= alert
 
 .chat-side
   .chat-side__user
