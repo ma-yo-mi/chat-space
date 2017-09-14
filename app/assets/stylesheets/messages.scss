@@ -7,10 +7,10 @@
 }
 .notification {
   width: 100vw;
-  background-color: var(--blue);
+  background-color: $blue;
   box-sizing: border-box;
-  p {
-    color: var(--white);
+  .flash-message p {
+    color: $white;
     text-align: center;
   }
 }
@@ -24,14 +24,14 @@
       height: 120px;
       background-color: #253141;
     .chat-side__user--name {
-      color: #FFFFFF;
+      color: $white;
       display: flex;
       padding: 45px 0 0 20px;
       float: left;
       p {
         font-size: 16px;
         font-weight: bold;
-        color: #FFFFFF;
+        color: $white;
       }
     }
 
@@ -39,7 +39,7 @@
       height: 50px;
       width: 50px;
       float: right;
-      color: #FFFFFF;
+      color: $white;
       line-height: 120px;
       .fa {
         display: inline-block;
@@ -55,7 +55,7 @@
       height: calc(100vh - 120px);
       background-color: #2f3e51;
     .chat-side__groups-list {
-      color: var(--white);
+      color: $white;
       display: block;
       box-sizing: border-box;
       padding: 0 20px;
@@ -100,10 +100,10 @@
     .main-site__header--btn {
       height: 50px;
       width: 100px;
-      border: 1px solid var(--blue);
+      border: 1px solid $blue;
       box-sizing: border-box;
       padding: 8px 20px;
-      color: #38AEF0;
+      color: $blue;
       margin: 35px 20px;
       float: right;
       text-align: center;
@@ -116,7 +116,7 @@
     height: calc(100vh - 120px - 90px);
     clear:both;
     list-style: none;
-    border-top: 2px solid #eeeeee;
+    border-top: 2px solid $gray_border;
     font-size: 15px;
 
 
@@ -128,7 +128,7 @@
     }
     span {
       margin: 0 0 0 10px;
-      color: #999999;
+      color: $gray;
       font-size: 11px;
     }
   }
@@ -145,8 +145,8 @@
       border: none;
     }
     .submit {
-      background-color: var(--blue);
-      color: #FFFFFF ;
+      background-color: $blue;
+      color: $white ;
       height: 50px;
       padding: 0 20px;
       border-style: none;
