@@ -19,11 +19,11 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    find_group_id
+    fsearch_group
   end
 
   def update
-    find_group_id
+    search_group
     if @group.update(group_params)
       flash[:notice] = "グループを編集しました"
       redirect_to root_path
@@ -38,7 +38,7 @@ class GroupsController < ApplicationController
 # TODO: 作動するかview作成したら確認要(controller & model)
   end
 
-  def find_group_id
+  def search_group
     @group = Group.find(params[:id])
   end
 end
