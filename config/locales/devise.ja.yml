@@ -61,11 +61,3 @@ ja:
       unlock_instructions:
         subject: 'アカウントのロック解除'
 
-        ja:
-  activerecord:
-    attributes:
-      user:
-        name: 名前
-        password: パスワード
-        password_confirmation: パスワード確認
-        email: メールアドレス
