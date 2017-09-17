@@ -5,30 +5,13 @@
 /       %p.flash-message__alert= alert
 
 .chat-side
-  .chat-side__user
-    .chat-side__user--name
-      %p NAME
-    .chat-side__user--btn1
-      %i.fa.fa-cog
-    .chat-side__user--btn2
-      %i.fa.fa-pencil-square-o
-
-  .chat-side__groups
-    .chat-side__groups-list
-      .chat-side__groups-name
-        %p group1
-      .chat-side__groups-message
-        %p message1
-      .chat-side__groups-name
-        %p group2
-      .chat-side__groups-message
-        %p message2
-
+  = render partial: 'layouts/chatside'
 
 .main-site
   .main-site__header
     .main-site__header--info
-      .group SAMPLE group
+      .group
+       -#{current_user.groups.find(params[:id]).name}
       %p members:ccc,sss,zzz
     .main-site__header--btn
       %a{ href: '', id: 'edit' }<edit
@@ -61,20 +44,3 @@
     %form
       %input.textarea{:name => "body", :placeholder => "type a message", :type => "text"}/
       %input.submit{:type => "submit", :value => "Send"}/
-
-
-
-
-    -#.chat-side__user--btn2
-      -#= link_to edit_user_registration_path do
-      -#%i.fa.fa-cog
-      -#      =text_field :text, placeholder: "Type here"
-  -#.main-site__message
-    -#%span.form
-    -#%input.text{type: :text, placeholder: "type a message"}
-    -#.main-site__message--picbtn
-    -#%i.fa.fa-file-image-o{"aria-hidden" => "true"}
-    -#%input.{ href: '', id: 'sent' }<Send
-
-'
-

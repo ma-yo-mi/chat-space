@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
+  before_action: search_group, only: [:edit, :update]
+
   def index
-    @group = Group.current_user
+    @groups = current_user.groups
   end
 
   def new
@@ -8,18 +10,18 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.new(group_params)
     if @group.save
        flash[:notice] = "グループを作成しました"
       redirect_to root_path
     else
+      flash[:alert] ="グループを作成できません"
       render action: :new
     end
 # TODO: 作動するかview作成したら確認要(controller & model)
   end
 
   def edit
-    fsearch_group
   end
 
   def update
@@ -34,8 +36,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name)
-# TODO: 作動するかview作成したら確認要(controller & model)
+    params.require(:group).permit(:name, user_ids: [])
   end
 
   def search_group

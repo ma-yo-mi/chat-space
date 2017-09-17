@@ -1,0 +1,17 @@
+.chat-side
+  .chat-side__user
+    .chat-side__user--name
+      = link_to current_user.name, root_path
+    .chat-side__user--btn1
+      %i.fa.fa-cog
+    .chat-side__user--btn2
+      = link_to new_group_path do
+        %i.fa.fa-pencil-square-o
+  .chat-side__groups
+    .chat-side__groups-list
+    - current_user.groups.each do |group|
+      .chat-side__groups-name
+        %p
+          = link_to group.name, group_messages_path(group.id)
+      .chat-side__groups-message
+        %p tttttt
