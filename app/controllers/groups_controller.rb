@@ -29,7 +29,6 @@ class GroupsController < ApplicationController
       flash[:notice] = "グループを編集しました"
       redirect_to root_path
     else
-      flash[:alert] ="グループを編集できません"
       render action: :edit
     end
   end
