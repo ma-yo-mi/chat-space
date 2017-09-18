@@ -11,36 +11,27 @@
   .main-site__header
     .main-site__header--info
       .group
-       -#{current_user.groups.find(params[:id]).name}
+      = @group.name
       %p members:ccc,sss,zzz
     .main-site__header--btn
-      %a{ href: '', id: 'edit' }<edit
-  .main-site__body
-    .main-site__body--messages
-      %ul
-      %li.message
-        %p.message__name<
-          sample NAME
-          %span<
-            2017/09/11 00:00:00
-        %p.message__text<
-          test test test test
-      %li.message.my-message
-        %p.message__name<
-          sample NAME2
-          %span<
-            2017/09/11 00:00:00
-        %p.message__text<
-          test test test test 2
-      %li.message
-        %p.message__name<
-          sample 名前
-          %span<
-            2017/09/11 00:00:00
-        %p.message__text<
-          テストテストテストテストテスト
+      %a
+      = link_to "Edit", edit_group_path(current_user)
+  .main-site__body--message
+    - current_user.messages.each do |user|
+      .main-site__body--messages
+        .message__box
+          .message__box--inner
+            .message__name
+              = current_user.name
+            .message__date
+              = user.created_at
+          .main-site__body--messagesbottom
+            .message__text
+              = user.body
 
   .bottoms
-    %form
-      %input.textarea{:name => "body", :placeholder => "type a message", :type => "text"}/
-      %input.submit{:type => "submit", :value => "Send"}/
+    = form_for [@group, @message], url: group_messages_path do |f|
+      = f.text_field :body, placeholder: "type a message", class: "textarea"
+      = f.submit "Send", class: "submit"
+
+
