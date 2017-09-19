@@ -30,18 +30,19 @@
             .message__date
               = message.created_at
           .main-site__body--messagesbottom
+            - if message.image.present?
+              .message.image
+                = image_tag(message.image)
             .message__text
               = message.body
 
-
   .bottoms
     = form_for [@group, @message], url: group_messages_path do |f|
-      .textarea
-        = f.text_field :body, placeholder: "type a message", class: "textarea"
-        .imageicon
+      .textfield
+      = f.text_field :body, placeholder: "type a message", class: "textarea"
+      .imageicon
+        = f.label :image do
           %i.fa.fa-picture-o
+          = f.file_field :image, class: "file_image"
       = f.submit "Send", class: "submit"
-
-
-
 

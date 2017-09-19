@@ -159,6 +159,7 @@
     background-color: #DCDCDC ;
     height: 90px;
     padding: 20px 40px;
+    position: relative;
     .textarea {
       width: calc(100% - 120px);
       height: 50px;
@@ -167,10 +168,13 @@
       float: left;
     }
     .imageicon {
-      background-color: white;
+      background-color: $white;
       float: left;
       line-height: 50px;
-      padding-right: 10px;
+      padding-right: 20px;
+      .file_image {
+        display: none;
+      }
     }
     .submit {
       background-color: $blue;
@@ -179,6 +183,11 @@
       padding: 0 20px;
       border-style: none;
       font-size: 20px;
-      margin-left: 15px;
+      margin-left: 1px;
+      position: absolute;
+      top: 20px;
+      bottom: 0px;
+      right: 0px;
+      left: 90%;
     }
   }
