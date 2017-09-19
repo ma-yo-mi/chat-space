@@ -12,26 +12,36 @@
     .main-site__header--info
       .group
       = @group.name
-      %p members:ccc,sss,zzz
+      .memberlist
+        %ul
+          %li Members joining:
+          - @group.group_users.each do |member|
+            %li= member.user.name
     .main-site__header--btn
       %a
       = link_to "Edit", edit_group_path(current_user)
   .main-site__body--message
-    - current_user.messages.each do |user|
+    - @group.messages.each do |message|
       .main-site__body--messages
         .message__box
           .message__box--inner
             .message__name
-              = current_user.name
+              = message.user.name
             .message__date
-              = user.created_at
+              = message.created_at
           .main-site__body--messagesbottom
             .message__text
-              = user.body
+              = message.body
+
 
   .bottoms
     = form_for [@group, @message], url: group_messages_path do |f|
-      = f.text_field :body, placeholder: "type a message", class: "textarea"
+      .textarea
+        = f.text_field :body, placeholder: "type a message", class: "textarea"
+        .imageicon
+          %i.fa.fa-picture-o
       = f.submit "Send", class: "submit"
+
+
 
 

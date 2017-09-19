@@ -1,6 +1,8 @@
 class MessagesController < ApplicationController
-  before_action :set_group, :set_message
-  def index
+  before_action :set_group
+
+def index
+    @message = Message.new
   end
 
   def create
@@ -14,17 +16,9 @@ class MessagesController < ApplicationController
     end
   end
 
-  def new
-  end
-
   private
   def set_group
     @group = Group.find(params[:group_id])
-  end
-
-
-  def set_message
-    @message = current_user.messages.new
   end
 
   def message_params

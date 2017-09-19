@@ -54,6 +54,7 @@
       height: calc(100vh - 120px);
       background-color: #2f3e51;
       color: $white;
+      padding: 46px 20px;
     &-list {
       display: block;
       box-sizing: border-box;
@@ -82,22 +83,31 @@
   width: calc(100vw - 300px);
   float: right;
   list-style: none;
-}
+
   .main-site__header {
     height: 120px;
-  }
 
     .main-site__header--info {
-      font-size: 20px;
-      color: #333333;
       margin: 46px 0 0 40px;
       float: left;
-      p {
-        font-size: 12px;
-        color: #999999;
-        padding: 10px 0;
+      .group {
+        font-size: 20px;
+        color: #333333;
+      }
+      .memberlist {
+      ul {
+        li {
+          font-size: 12px;
+          color: #999999;
+          margin-right: 10px;
+          padding: 10px 0;
+          float: left;
+          list-style: none;
+          }
+        }
       }
     }
+
     .main-site__header--btn {
       height: 50px;
       width: 100px;
@@ -114,12 +124,14 @@
       color: $blue;
       }
     }
+  }
+}
   .main-site__body--message {
     height: calc(100vh - 120px - 90px);
     clear:both;
     border-top: 2px solid $gray_border;
     font-size: 15px;
-    padding: 0 40px 0 40px;
+    padding: 46px 40px;
     overflow: scroll;
     .message__box {
       margin-bottom: 40px;
@@ -152,6 +164,13 @@
       height: 50px;
       padding: 0 20px;
       border: none;
+      float: left;
+    }
+    .imageicon {
+      background-color: white;
+      float: left;
+      line-height: 50px;
+      padding-right: 10px;
     }
     .submit {
       background-color: $blue;
@@ -163,7 +182,3 @@
       margin-left: 15px;
     }
   }
-
-
-
-

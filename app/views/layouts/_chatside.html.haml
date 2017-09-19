@@ -14,5 +14,4 @@
       .chat-side__groups-name
         = link_to group.name, group_messages_path(group.id)
       .chat-side__groups-message
-      - group.messages.each do |message|
-        = link_to message.body, group_messages_path(group.id)
+        = link_to group.messages.last.body, group_messages_path(group.id)
