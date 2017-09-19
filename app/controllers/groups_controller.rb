@@ -16,7 +16,6 @@ class GroupsController < ApplicationController
       flash[:alert] ="グループを作成できません"
       render action: :new
     end
-# TODO: 作動するかview作成したら確認要(controller & model)
   end
 
   def edit

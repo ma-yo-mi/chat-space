@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_group, :set_group_users, :set_message
+  before_action :set_group, :set_message
   def index
   end
 
@@ -22,9 +22,6 @@ class MessagesController < ApplicationController
     @group = Group.find(params[:group_id])
   end
 
-  def set_group_users
-    @groups = current_user.groups
-  end
 
   def set_message
     @message = current_user.messages.new

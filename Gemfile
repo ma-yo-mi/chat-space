@@ -21,6 +21,7 @@ gem 'pry-rails'
 gem 'devise'
 gem 'html2haml'
 gem 'erb2haml'
+gem 'carrierwave', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
