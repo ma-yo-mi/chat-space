@@ -8,5 +8,4 @@ private
   def options
     body.presence or image.presence
   end
-  # TODO: 画像実装した際に再確認要
 end
