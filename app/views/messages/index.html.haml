@@ -37,7 +37,7 @@
               = message.body
 
   .bottoms
-    = form_for [@group, @message], url: group_messages_path do |f|
+    = form_for [@group, @message] do |f|
       .textfield
       = f.text_field :body, placeholder: "type a message", class: "textarea"
       .imageicon
