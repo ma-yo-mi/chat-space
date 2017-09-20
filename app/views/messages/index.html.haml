@@ -11,36 +11,38 @@
   .main-site__header
     .main-site__header--info
       .group
-       -#{current_user.groups.find(params[:id]).name}
-      %p members:ccc,sss,zzz
+      = @group.name
+      .memberlist
+        %ul
+          %li Members joining:
+          - @group.group_users.each do |member|
+            %li= member.user.name
     .main-site__header--btn
-      %a{ href: '', id: 'edit' }<edit
-  .main-site__body
-    .main-site__body--messages
-      %ul
-      %li.message
-        %p.message__name<
-          sample NAME
-          %span<
-            2017/09/11 00:00:00
-        %p.message__text<
-          test test test test
-      %li.message.my-message
-        %p.message__name<
-          sample NAME2
-          %span<
-            2017/09/11 00:00:00
-        %p.message__text<
-          test test test test 2
-      %li.message
-        %p.message__name<
-          sample 名前
-          %span<
-            2017/09/11 00:00:00
-        %p.message__text<
-          テストテストテストテストテスト
+      %a
+      = link_to "Edit", edit_group_path(current_user)
+  .main-site__body--message
+    - @group.messages.each do |message|
+      .main-site__body--messages
+        .message__box
+          .message__box--inner
+            .message__name
+              = message.user.name
+            .message__date
+              = message.created_at
+          .main-site__body--messagesbottom
+            - if message.image.present?
+              .message.image
+                = image_tag(message.image)
+            .message__text
+              = message.body
 
   .bottoms
-    %form
-      %input.textarea{:name => "body", :placeholder => "type a message", :type => "text"}/
-      %input.submit{:type => "submit", :value => "Send"}/
+    = form_for [@group, @message] do |f|
+      .textfield
+      = f.text_field :body, placeholder: "type a message", class: "textarea"
+      .imageicon
+        = f.label :image do
+          %i.fa.fa-picture-o
+          = f.file_field :image, class: "file_image"
+      = f.submit "Send", class: "submit"
+
