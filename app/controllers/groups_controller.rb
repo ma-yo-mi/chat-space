@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_action: search_group, only: [:edit, :update]
+
   def index
     @groups = current_user.groups
   end
@@ -19,7 +21,6 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    search_group
   end
 
   def update
@@ -28,7 +29,6 @@ class GroupsController < ApplicationController
       flash[:notice] = "グループを編集しました"
       redirect_to root_path
     else
-      flash[:alert] ="グループを編集できません"
       render action: :edit
     end
   end
