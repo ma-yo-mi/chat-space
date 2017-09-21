@@ -1,5 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
+  attr_accessor :image
   # process :resize_to_limit => [200, 200]
   # process :convert => 'jpg'
   # version :thumb do
