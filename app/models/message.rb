@@ -1,7 +1,7 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :group
-  validates :options, :user_id, :user_id, presence: true
+  validates :options, :group_id, :user_id, presence: true
   mount_uploader :image, ImageUploader
 
 

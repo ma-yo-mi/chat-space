@@ -31,6 +31,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'forgery'
+  gem 'rails-controller-testing'
+  gem 'json_spec'
+  gem "rspec-request_describer"
 end
 
 group :development do
