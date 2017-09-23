@@ -4,26 +4,29 @@ describe MessagesController, type: :controller do
   let(:user) { create(:user) }
   let(:group) { create(:group) }
   let(:message) { create(:message) }
-
+  let(:group_id) do
+    {params: { group_id: group.id }}
+  end
+  let(:params) do
+    { params: { group_id: group.id, message: attributes_for(:message) } }
+  end
 
   describe 'GET #index' do
     context "USER logged in" do
       before do
         login_user user
+        get :index, group_id
       end
 
       it "is assigned to @message" do
-        get :index, params: { group_id: group.id }
         expect(assigns(:message)).to be_a_new(Message)
       end
 
       it "is assigned to @group" do
-        get :index, params: { group_id: group.id }
         expect(assigns(:group)).to eq(group)
       end
 
         it "renders index template" do
-        get :index, params: { group_id: group }
         expect(response).to render_template :index
       end
     end
@@ -43,12 +46,12 @@ describe MessagesController, type: :controller do
 
       it "data saved in DB " do
         expect {
-          post :create, params: { group_id: group.id, message: attributes_for(:message) }
+          post :create, params
         }.to change(Message, :count).by(1)
       end
 
       it "redirect to group_messages_path" do
-      post :create, params: { group_id: group, message: attributes_for(:message) }
+      post :create, params
       expect(response).to redirect_to group_messages_path
       end
     end
@@ -65,7 +68,7 @@ describe MessagesController, type: :controller do
       end
 
       it "redirect to group_messages_path" do
-      post :create, params: { group_id: group, message: attributes_for(:message) }
+      post :create, params
       expect(response).to redirect_to group_messages_path
       end
     end
