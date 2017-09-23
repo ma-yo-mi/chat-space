@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action: search_group, only: [:edit, :update]
+  before_action(:search_group, only: [:edit, :update])
 
   def index
     @groups = current_user.groups
