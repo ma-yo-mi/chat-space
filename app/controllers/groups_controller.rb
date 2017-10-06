@@ -24,7 +24,6 @@ class GroupsController < ApplicationController
   end
 
   def update
-    search_group
     if @group.update(group_params)
       flash[:notice] = "グループを編集しました"
       redirect_to root_path
@@ -35,7 +34,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, user_ids: [])
+    params.require(:group).permit(:name, {user_ids: []})
   end
 
   def search_group

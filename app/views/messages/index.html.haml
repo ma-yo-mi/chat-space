@@ -22,19 +22,20 @@
       = link_to "Edit", edit_group_path(current_user)
   .main-site__body--message
     - @group.messages.each do |message|
-      .main-site__body--messages
+      .main-site__body--messages{ "data-id": message.id }
         .message__box
           .message__box--inner
             .message__name
               = message.user.name
             .message__date
-              = message.created_at
+              = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
           .main-site__body--messagesbottom
-            - if message.image.present?
-              .message.image
-                = image_tag(message.image)
-            .message__text
-              = message.body
+            / - if message.image.present?
+            .message.image
+              = image_tag(message.image)
+          .message__text
+            = message.body
+
 
   .bottoms
     = form_for [@group, @message] do |f|

@@ -3,13 +3,21 @@ class MessagesController < ApplicationController
 
 def index
     @message = Message.new
+    # binding.pry
+    respond_to do |format|
+      format.html
+      format.json  { @messages = @group.messages.where('id > ?', params[:message][:id]) }
+      # binding.pry
+    end
   end
 
   def create
     @message = current_user.messages.new(message_params)
     if @message.save
-     flash[:notice] = "メッセージを作成しました"
-    redirect_to group_messages_path
+      respond_to do |format|
+        format.html { redirect_to group_messages_path(@group), notice: "メッセージを作成しました" }
+        format.json
+    end
     else
       flash[:alert] ="メッセージを保存できませんでした"
       render action: :index
